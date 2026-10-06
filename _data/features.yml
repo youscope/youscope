@@ -1,0 +1,105 @@
+- id: microplate-editor
+  category: Acquisition
+  name: Microplate &amp; chip editor
+  lede: Turn any layout into a position map you can loop over.
+  body: >-
+    Draw a standard microplate or a custom microfluidic chip, place wells,
+    chambers and features by hand or from a template, and assign imaging
+    positions visually. YouScope turns the drawing into a coordinate map your
+    protocol iterates over. The days of time-consuming, hand-typed stage positions are over.
+  shot: wide
+  coord: "572 wells · A1–K36"
+  size: large
+  image: "/assets/img/capabilities/ys-came-cc-m.png"
+
+- id: smart-microscopy
+  category: Analysis
+  name: Smart microscopy
+  lede: Acquisition that reacts to what it sees.
+  body: >-
+    Close the loop between imaging and analysis. Modular segmenters find your
+    objects, quantifiers measure what matters, trackers follow them through time. Results feed back to drive the next acquisition. Mix the
+    built-in modules or drop in your own segmenter, quantifier or tracker.
+  shot: wide
+  coord: "segment · quantify · track"
+  size: medium
+  image: "/assets/img/capabilities/ys-cellpose-livecell-detection.png"
+
+
+- id: scripting-console
+  category: Scripting
+  name: Scripting &amp; environments
+  lede: Automate any protocol, in the language you already use.
+  body: >-
+    One console drives it all. Write in modern Python, legacy Jython, MATLAB or
+    JavaScript. YouScope tracks the environment each script
+    runs in, so native and e.g. Cython-backed packages like NumPy or TensorFlow sit
+    right inside your acquisition logic.
+  shot: closeup
+  coord: "python · matlab · js"
+  size: medium
+  image: "/assets/img/capabilities/ys-scripting-console-python-napari.png"
+
+- id: argolight-calibration
+  category: Calibration
+  name: Argolight calibration
+  lede: Calibrate your optical system, and track its performance over time.
+  body: >-
+    Run your Argolight reference patterns and turn them into quantitative
+    checks with all aquisition settings generated automatically. For example field illumination, distortion and stage
+    accuracy. To ensure today's images stay comparable to last month's.
+  shot: closeup
+  coord: "QC · Δλ registration"
+  size: medium
+  image: "/assets/img/capabilities/ys-microscope-calibration-argolight.png"
+
+- id: fair-export
+  category: Data
+  name: FAIR export
+  lede: Turn experiments into archives others can actually reuse.
+  body: >-
+    Export legacy and current projects to open, standard formats such as OME-TIFF,
+    OME-Zarr and RO-Crates. Images, metadata and provenance
+    travel together, FAIR by default.
+  shot: wide
+  coord: "OME-Zarr · OME-TIFF · RO-Crate "
+  size: half
+  image: "/assets/img/capabilities/ys-fair-export.png"
+
+# - id: remote-control
+#   category: Control
+#   name: Reproducible remote control
+#   lede: Run YouScope from anywhere, exactly the same way twice.
+#   body: >-
+#     A lightweight client that can be launched, for example, from a Reproducible Research
+#     Platform (RRP) environment or the cloud. It connects over the network to the YouScope
+#     server on the microscope's control computer. Protocol, dependencies and
+#     analysis travel as one versioned project you can re-run or hand to a
+#     collaborator.
+#   shot: closeup
+#   coord: "client → server"
+#   size: half
+#   image: "/assets/img/capabilities/ys-main.png"
+
+# - id: storage
+#   category: Storage
+#   name: Integration with RDM systems
+#   lede: Upload measurements directly into your Research Data Management System.
+#   body: >-
+#     Send measurements directly from YouScope to your Research Data Management system. 
+#     Connect to systems such as openBIS, with data transfer running in the background. Images, metadata and experimental context can move from acquisition to long-term storage without manual export.
+#   shot: closeup
+#   coord: "local → network/cloud storage"
+#   size: half
+#   image: "/assets/img/capabilities/ys-main.png"
+
+- id: llm
+  category: AI
+  name: YouScope AI assistant
+  lede: Configure complex protocols with YouScope's AI assistant faster.
+  body: >-
+    Configure complex protocols with help from an AI assistant. Connect YouScope to an LLM through an API and use it to configure your optical system, set up attached devices and build measurement protocols. The assistant helps turn what you want to measure into a protocol you can run in YouScope reproducibly. 
+  shot: closeup
+  coord: "llm · assistant · reproducible protocols"
+  size: half
+  image: "/assets/img/capabilities/ys-ai-assistant.png"

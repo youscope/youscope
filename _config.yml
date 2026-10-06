@@ -1,0 +1,55 @@
+title: YouScope
+tagline: Complex microscopy protocols made easy. Reproducible and FAIR by design.
+description: >-
+  YouScope is free, open-source software for driving automated microscopes.
+  The upcoming release adds a visual microplate & chip editor, multi-language
+  scripting, Argolight calibration, closed-loop smart acquisition, FAIR data
+  export (OME-Zarr, RO-Crate, openBIS), and reproducible remote control.
+url: "https://youscope.org"
+baseurl: ""
+lang: en
+
+# Set to false the day you swap the teaser for the full site.
+coming_soon: false
+# Shown in the hero status pill. Leave target empty until a date is decided.
+status:
+  label: "In active development"
+  target: ""            # "Targeting 2026"
+
+# Newsletter
+newsletter:
+  enabled: true
+  provider: "emailoctopus"         
+  embed_id: "f0dd2f18-c1c1-11f1-8870-5959bcf87676"
+  fallback_mailto: "info@youscope.org"
+
+# Links 
+repo_url: "https://github.com/cunyap/youscope"
+org_url: "https://github.com/youscope"
+contact_email: "info@youscope.org"
+
+# Media
+hero_video: true
+
+# Affiliation (shown in footer) 
+affiliation:
+  group: "Computational Systems Biology"
+  dept: "ETH Zurich, D-BSSE"
+  city: "Basel, Switzerland"
+
+# Build 
+plugins:
+  - jekyll-seo-tag
+
+sass:
+  style: compressed
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - PROJECT_LOG.md
+  - scripts
+  - vendor
+  - .github
+  - ci

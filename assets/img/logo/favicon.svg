@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="YouScope">
+  <rect width="64" height="64" rx="12" fill="#ffffff"/>
+  <text x="50%" y="54%" dominant-baseline="central" text-anchor="middle"
+        font-family="'Arial Black',Arial,sans-serif" font-weight="800" font-style="italic"
+        font-size="40" letter-spacing="-2">
+    <tspan fill="#c10000">Y</tspan><tspan fill="#585858">S</tspan>
+  </text>
+</svg>

@@ -1,0 +1,63 @@
+{%- comment -%}
+  Newsletter signup. Three modes, picked by site.newsletter:
+    1. embed_id set       EmailOctopus script embed (handles reCAPTCHA, validation, success state)
+    2. action set         your own themed form, POSTed by the JS in base.html
+    3. neither            mailto: fallback so the form always does something useful
+{%- endcomment -%}
+{%- assign nl = site.newsletter -%}
+
+{%- if nl.embed_id and nl.embed_id != "" -%}
+
+<div id="subscribe-embed" class="subscribe subscribe--embed">
+  <script async
+          src="https://eomail5.com/form/{{ nl.embed_id }}.js"
+          data-form="{{ nl.embed_id }}"></script>
+  <p class="hint">Join the mailing list and we’ll let you know when it goes public. No spam, unsubscribe anytime.</p>
+</div>
+
+{%- else -%}
+
+  {%- if nl.action and nl.action != "" -%}
+    {%- assign form_action = nl.action -%}
+    {%- assign form_method = "post" -%}
+  {%- else -%}
+    {%- assign form_action = "mailto:" | append: nl.fallback_mailto | append: "?subject=Notify%20me%20about%20YouScope" -%}
+    {%- assign form_method = "get" -%}
+  {%- endif -%}
+
+<form id="subscribe-form" class="subscribe" action="{{ form_action }}" method="{{ form_method }}"
+      {% if form_method == "post" %}target="_blank"{% endif %}>
+
+  {%- if form_method == "post" and nl.honeypot_field and nl.honeypot_field != "" -%}
+  <div class="hp" aria-hidden="true">
+    <input type="text" name="{{ nl.honeypot_field }}" tabindex="-1" autocomplete="off" value="">
+  </div>
+  {%- endif -%}
+
+  <label class="visually-hidden" for="nl-email">Email address</label>
+  <div class="field">
+    <input id="nl-email" type="email" name="{{ nl.email_field | default: 'email' }}"
+           placeholder="you@lab.org" autocomplete="email" required inputmode="email">
+    <button class="btn btn-primary" type="submit">Notify me</button>
+  </div>
+  <p class="form-msg" role="status" aria-live="polite"></p>
+  <p class="hint">Join the mailing list and we’ll let you know when it goes public. No spam, unsubscribe anytime.</p>
+  <script>
+    (function () {
+      var LABEL = "Notify me";
+      function relabel() {
+        var btns = document.querySelectorAll('#subscribe-embed input[type="submit"]');
+        for (var i = 0; i < btns.length; i++) {
+          if (btns[i].value !== LABEL) { btns[i].value = LABEL; console.log("relabelled"); }
+        }
+      }
+      relabel();
+      new MutationObserver(relabel).observe(document.getElementById("subscribe-embed"), {
+        childList: true, subtree: true
+      });
+      var n = 0, iv = setInterval(function () { relabel(); if (++n > 40) clearInterval(iv); }, 250);
+    })();
+  </script>
+</form>
+
+{%- endif -%}

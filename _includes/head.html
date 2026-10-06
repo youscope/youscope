@@ -1,0 +1,36 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- No-flash theme: resolve saved choice to OS preference to light, before paint -->
+  <script>
+    (function () {
+      try {
+        var s = localStorage.getItem("ys-theme");
+        var t = s || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0d1014" media="(prefers-color-scheme: dark)">
+
+  {% seo %}
+
+  <link rel="icon" href="{{ '/assets/img/logo/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/logo/icon-32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/img/logo/icon-16.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ '/assets/img/logo/icon-96.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="194x194" href="{{ '/assets/img/logo/icon-194.png' | relative_url }}">
+  <link rel="shortcut icon" href="{{ '/assets/img/logo/favicon.ico' | relative_url }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>

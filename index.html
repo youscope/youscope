@@ -1,0 +1,125 @@
+---
+layout: base
+title: "YouScope — Complex microscopy protocols made easy, reproducible and FAIR by design."
+description: >-
+  YouScope is free, open-source software for driving automated microscopes.
+  The next release adds a visual microplate & chip editor, multi-language
+  scripting, Argolight calibration, closed-loop smart acquisition, FAIR data
+  export (OME-Zarr, RO-Crate, openBIS), and reproducible remote control.
+---
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="status-pill">
+        <span class="dot" aria-hidden="true"></span>
+        {{ site.status.label }}{% if site.status.target and site.status.target != "" %} · {{ site.status.target }}{% endif %}
+      </span>
+      <h1>Complex microscopy protocols made easy.<br>Reproducible and FAIR by design.</h1>
+      <p class="lede">
+        YouScope is free, open-source software for driving automated
+        microscopes. The new release is on its way. With a visual
+        microplate &amp; chip editor, multi-language scripting, closed-loop
+        smart acquisition, FAIR data export, and reproducible remote control.
+      </p>
+      {% include newsletter.html %}
+    </div>
+
+    <div class="hero-media">
+      <div class="viewport">
+        <div class="viewport-bar">
+          <span class="lamp" aria-hidden="true"></span>
+          <span class="mono">LiveStream</span>
+          <span class="sep">·</span>
+          <span class="mono">well A1</span>
+          <span class="right mono">X 12.40 · Y 8.10 · Z 4.02</span>
+        </div>
+        <div class="viewport-media">
+          {%- comment -%} Set `hero_video: true` in _config.yml once the clip is added. {%- endcomment -%}
+          {% if site.hero_video %}
+          <video autoplay muted loop playsinline
+                 poster="{{ '/assets/video/livecell-poster.jpg' | relative_url }}">
+            <source src="{{ '/assets/video/livecell.webm' | relative_url }}" type="video/webm">
+            <source src="{{ '/assets/video/livecell.mp4' | relative_url }}" type="video/mp4">
+          </video>
+          {% else %}
+          <img src="{{ '/assets/video/livecell-poster.jpg' | relative_url }}"
+               alt="Placeholder for the live-cell imaging clip">
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" aria-labelledby="coming-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 id="coming-title">What's coming</h2>
+      <p>
+        New capabilities, built on the same open, extendable core that
+        already drives microscopes in labs today.
+      </p>
+    </div>
+
+    <div class="bento">
+      {% for f in site.data.features %}
+      <article class="feature reveal{% if f.size == 'large' %} is-large{% elsif f.size == 'half' %} is-half{% endif %}">
+        <div class="feature-shot">
+          <div class="shot-inner">
+            {%- if f.image and f.image != "" -%}
+              {%- assign shot_src = f.image | relative_url -%}
+              {%- assign shot_alt = f.name | strip_html | append: " — YouScope" -%}
+            {%- else -%}
+              {%- assign shot_src = '/assets/img/placeholders/feature-' | append: f.shot | append: '.svg' | relative_url -%}
+              {%- assign shot_alt = 'Placeholder — ' | append: f.shot | append: ' screenshot of ' | append: f.name | strip_html -%}
+            {%- endif -%}
+            <img src="{{ shot_src }}" alt="{{ shot_alt }}" loading="lazy">
+          </div>
+        </div>
+        <div class="feature-body">
+          <div class="feature-meta">
+            <span class="feature-tag mono">{{ f.category }}</span>
+            <span class="coord mono">{{ f.coord }}</span>
+          </div>
+          <h3>{{ f.name }}</h3>
+          <p class="f-lede">{{ f.lede }}</p>
+          <p class="f-body">{{ f.body }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<section class="creds" aria-label="About the project">
+  <div class="wrap">
+    <div class="cred reveal">
+      <h3>Built from researchers for research labs</h3>
+      <p>
+        YouScope has driven automated microscopes for over a decade started in 2009, developed
+        in the {{ site.affiliation.group }} group at {{ site.affiliation.dept }},
+        {{ site.affiliation.city }}.
+        <a href="{{ '/contributors/' | relative_url }}">Learn more about the contributors</a>.
+      </p>
+    </div>
+    <div class="cred reveal">
+      <h3>Open and extendable</h3>
+      <p>
+        Free and open-source under a dual license Apache 2.0 or LGPL 2.1. Scriptable, plugin-based, and
+        compatible with most present-day automated microscopes.
+        <a href="{{ site.repo_url }}" target="_blank" rel="noopener">View the code</a>.
+      </p>
+    </div>
+    <div class="cred reveal">
+      <h3>Reproducible by design</h3>
+      <p>
+        The seperation between hardware configuration and abstract imaging protocols 
+        allows for reproducibility by design, so an experiment can be re-run or shared exactly as it
+        ran the first time even on different hardware.
+      </p>
+    </div>
+  </div>
+</section>

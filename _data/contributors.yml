@@ -1,0 +1,21 @@
+- name: Moritz Lang
+  role: Initial author and main architect
+  image: "/assets/img/contributors/moritz.png"
+  link: "https://langmo.github.io/"          
+  bio: >-
+    Designed the core architecture and wrote most of the initial code that established YouScope as a flexible, scriptable microscope control platform. 
+    His work laid the foundation for systematic microscopy protocols, hardware abstraction, and extensibility through plugins, enabling YouScope to grow
+     from an in-house tool into a broadly usable system for automated imaging. By introducing an additional abstraction layer on top of Micro-Manager’s device drivers,
+      this design separates complex experimental protocols from low-level hardware control, enabling precise event timing, safe multi-threaded access to the microscope, 
+      and networked or coordinator-worker operation. The resulting user interface guides experimentalists toward reproducible, well-documented measurements without requiring deep technical training, while still leveraging Micro-Manager’s wide range of microscope drivers.
+
+- name: Andreas P. Cuny
+  role: Current maintainer and architect
+  image: "/assets/img/contributors/andreas.jpg"
+  link: "https://bsse.ethz.ch/people/detail-person.MTg0ODUw.TGlzdC8yNjY5LC0xMDExNjczNjI=.html"          
+  bio: >-
+    Maintainer since 2022 and current developer. Led the upgrade of the Micro-Manager version to ensure compatibility with recent microscopes and authored several 
+    new plugins for microscope calibration, FAIR export, and custom microplate handling, as well as modern Python scripting support. Developed a new modular API for 
+    generic cell detection with interchangeable segmenters (CellX, StarDist, CellPose, FastER), quantifiers (CellX, CellProfiler), and trackers (Btrack, TrackMate, trackpy) 
+    that can be extended easily and used for feedback or smart microscopy applications. Introduced an AI assistant for creating microscope configurations, complex protocols, 
+    and general assistance with YouScope.cols and general assistance with YouScope.

@@ -1,0 +1,46 @@
+name: Build and deploy (GitHub Pages)
+
+# Deploys the coming-soon branch to GitHub Pages via Actions (not the classic
+# auto-build), so we control the plugin/version choices. 
+# Point Settings -> Pages -> "Source" at "GitHub Actions", and set this workflow's branch below.
+
+on:
+  push:
+    branches: [coming-soon]   # change to main when the full site takes over
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.2"
+          bundler-cache: true
+      - name: Build with Jekyll
+        run: bundle exec jekyll build
+        env:
+          JEKYLL_ENV: production
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

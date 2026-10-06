@@ -1,0 +1,34 @@
+<section class="section contributors" id="contributors" aria-labelledby="contributors-title">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 id="contributors-title">Contributors</h2>
+      <p>YouScope is built by a community of researchers and developers. YouScope was initially developed by members of the Computational Systems Biology (CSB) group at ETH Zurich, Switzerland.</p>
+    </div>
+
+    <ul class="contributor-grid">
+      {% for c in site.data.contributors %}
+      <li class="contributor reveal">
+        <div class="portrait">
+          {%- if c.image and c.image != "" -%}
+            <img src="{{ c.image | relative_url }}" alt="{{ c.name }}" loading="lazy">
+          {%- else -%}
+            {%- assign parts = c.name | split: " " -%}
+            {%- assign fi = parts.first | slice: 0, 1 -%}
+            {%- assign li = "" -%}
+            {%- if parts.size > 1 -%}{%- assign li = parts.last | slice: 0, 1 -%}{%- endif -%}
+            <span class="portrait-fallback" aria-hidden="true">{{ fi }}{{ li }}</span>
+          {%- endif -%}
+        </div>
+        <div class="contributor-body">
+          <h3>{{ c.name }}</h3>
+          {% if c.role and c.role != "" %}<p class="role mono">{{ c.role }}</p>{% endif %}
+          <div class="bio">{{ c.bio | markdownify }}</div>
+          {% if c.link and c.link != "" %}
+          <a class="contributor-link" href="{{ c.link }}" target="_blank" rel="noopener">Profile ↗</a>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

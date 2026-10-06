@@ -1,0 +1,49 @@
+# GitLab CI: mirrors the GitHub Actions build.
+# • `pages`         : Linux runner → builds Jekyll into ./public and publishes
+#                     GitLab Pages.
+# • `build:windows` : optional cross-platform build check on a Windows runner
+#                     (tagged `windows`). Set to allow_failure so it never
+#                     blocks a deploy.
+#
+# Adjust the `tags:` to match your runner labels. GitLab Pages requires the
+# job to be named `pages` and to output into ./public.
+
+stages: [build]
+
+variables:
+  JEKYLL_ENV: production
+  BUNDLE_PATH: vendor/bundle          # cache gems inside the project
+
+cache:
+  key: "${CI_COMMIT_REF_SLUG}-bundle"
+  paths:
+    - vendor/bundle
+
+pages:
+  stage: build
+  image: ruby:3.2
+  tags: []                        
+  script:
+    - ruby -v
+    - bundle install --jobs 4
+    - bundle exec jekyll build -d public --trace
+  artifacts:
+    paths: [public]
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "coming-soon"'
+    - if: '$CI_COMMIT_BRANCH == "main"'
+
+build:windows:
+  stage: build
+  tags: [windows]                      
+  allow_failure: true
+  script:
+    - powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build.ps1
+  artifacts:
+    paths: [_site]
+    expire_in: 1 day
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "coming-soon"'
+      when: manual
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: manual

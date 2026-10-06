@@ -1,0 +1,19 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="YouScope home">
+        <span class="y">Y</span>ou<span class="s">S</span>cope
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="{{ site.repo_url }}" target="_blank" rel="noopener">Source code</a>
+        <a href="{{ site.repo_url }}/issues" target="_blank" rel="noopener">Report an issue</a>
+        <a href="mailto:{{ site.contact_email }}">Contact</a>
+        <a href="{{ site.repo_url }}/blob/master/LICENSE" target="_blank" rel="noopener">License (Apache 2.0 or LGPL2.1)</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span class="mono">{{ site.affiliation.group }} · {{ site.affiliation.dept }} · {{ site.affiliation.city }}</span>
+      <span class="mono">© {{ site.time | date: '%Y' }} YouScope · Open source</span>
+    </div>
+  </div>
+</footer>
