@@ -6,7 +6,7 @@ description: >-
   scripting, Argolight calibration, closed-loop smart acquisition, FAIR data
   export (OME-Zarr, RO-Crate, openBIS), and reproducible remote control.
 url: "https://youscope.org"
-baseurl: ""
+baseurl: "/youscope"
 lang: en
 
 # Set to false the day you swap the teaser for the full site.
