@@ -10,7 +10,7 @@ baseurl: "/youscope"
 lang: en
 
 # Set to false the day you swap the teaser for the full site.
-coming_soon: false
+coming_soon: true
 # Shown in the hero status pill. Leave target empty until a date is decided.
 status:
   label: "In active development"
